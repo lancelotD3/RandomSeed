@@ -97,7 +97,6 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Dash(horizontal));
             dash = false;
         }
-        Debug.Log(speed);
     }
 
     private bool IsGrounded()

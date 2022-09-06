@@ -85,7 +85,11 @@ MonoBehaviour:
   Path: FMOD/Random Seed/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< HEAD
   lastModified: 637980849334385004
+=======
+  lastModified: 637980849957070543
+>>>>>>> origin/UI2
   FileSizes:
   - Name: Desktop
     Value: 980
@@ -105,7 +109,11 @@ MonoBehaviour:
   Path: FMOD/Random Seed/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< HEAD
   lastModified: 637980849334375679
+=======
+  lastModified: 637980849957030273
+>>>>>>> origin/UI2
   FileSizes:
   - Name: Desktop
     Value: 1425440
@@ -135,7 +143,11 @@ MonoBehaviour:
   - {fileID: -4914969087052287240}
   StringsBanks:
   - {fileID: -6186854838863944140}
+<<<<<<< HEAD
   cacheTime: 637980849334385004
+=======
+  cacheTime: 637980849957070543
+>>>>>>> origin/UI2
   cacheVersion: 10
 --- !u!114 &3229322758985666186
 MonoBehaviour:

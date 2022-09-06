@@ -99,8 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  runingSpeed: 4
   jumpingForce: 4
-  dashDistance: 15
+  dashSpeed: 8
+  dashTime: 0.4
   rb: {fileID: 8558975012052258523}
   groundCheck: {fileID: 8558975012448860067}
   groundLayer:
@@ -116,7 +118,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8558975012052258521}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b32a668e28b03fc4ea71ffb6ed6ce053, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -142,7 +144,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 8558975012052258521}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b32a668e28b03fc4ea71ffb6ed6ce053, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -158,7 +160,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 8558975012052258521}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b32a668e28b03fc4ea71ffb6ed6ce053, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

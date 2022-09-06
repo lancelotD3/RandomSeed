@@ -18,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     private bool isFacingRight = true;
 
+
+
+    [SerializeField]
+    private float dashCooldown = 2f;
+    private float dashTimer = 0f;
+    private bool canDash = true;
+
     [SerializeField]
     private float dashSpeed = 8f;
 
@@ -26,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool dash = false;
     private bool isDashing = false;
+
+
 
     [SerializeField]
     private Rigidbody2D rb;
@@ -53,9 +62,19 @@ public class PlayerMovement : MonoBehaviour
 
         Flip();
         
-        if (Input.GetButtonDown("Dash") && IsGrounded() && horizontal != 0)
+        if (Input.GetButtonDown("Dash") && IsGrounded() && horizontal != 0 && canDash)
         {
             dash = true;
+            canDash = false;
+        }
+        else if (!canDash)
+        {
+            dashTimer -= Time.deltaTime;
+            if (dashTimer < 0)
+            {
+                canDash = true;
+                dashTimer = dashCooldown;
+            }
         }
 
         if(Input.GetButton("Run") && IsGrounded() && !isDashing)

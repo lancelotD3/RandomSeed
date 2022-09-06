@@ -140,7 +140,7 @@
 	</object>
 	<object class="MultiSound" id="{19ad3460-03b4-4dfb-941c-8b737ea35f08}">
 		<property name="length">
-			<value>2</value>
+			<value>0.75</value>
 		</property>
 		<relationship name="sounds">
 			<destination>{e829800a-074d-4235-82ac-c908e9eb07f9}</destination>
@@ -249,7 +249,7 @@
 			<value>0</value>
 		</property>
 		<property name="length">
-			<value>2</value>
+			<value>0.75</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{41af9f12-f29b-40eb-b9a4-07a8f23e54ea}</destination>

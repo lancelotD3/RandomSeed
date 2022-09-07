@@ -584,7 +584,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 2202c106d3ef48d42942a03d70064f13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -604,8 +604,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314160333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.14, y: 5.93, z: 0}
-  m_LocalScale: {x: 3.9598885, y: 3.9598885, z: 3.9598885}
+  m_LocalPosition: {x: 93.1, y: -7, z: 0}
+  m_LocalScale: {x: 1.6765888, y: 1.6765888, z: 1.6765888}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1369,7 +1369,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 2202c106d3ef48d42942a03d70064f13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1389,8 +1389,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732251432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 84.19, y: -1.01, z: 0}
-  m_LocalScale: {x: -3.959888, y: 3.9598885, z: 3.9598885}
+  m_LocalPosition: {x: 80.35, y: -5.05, z: 0}
+  m_LocalScale: {x: -2.3743489, y: 2.374349, z: 2.374349}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1888,7 +1888,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: e6c5b3ca56881634791e7e8411623b7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1908,8 +1908,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125573202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.97, y: 9.15, z: 0}
-  m_LocalScale: {x: 2.399583, y: 2.399583, z: 2.399583}
+  m_LocalPosition: {x: 88.55, y: -2.95, z: 0}
+  m_LocalScale: {x: 1.4572668, y: 1.4572668, z: 1.4572668}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

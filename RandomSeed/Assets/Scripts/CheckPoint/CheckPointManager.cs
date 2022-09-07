@@ -7,6 +7,11 @@ public class CheckPointManager : MonoBehaviour
     private static CheckPointManager instance;
     public Vector2 lastCheckPointPos;
 
+    private void Start()
+    {
+        lastCheckPointPos = transform.position;    
+    }
+
     private void Awake()
     {
         if (instance == null)

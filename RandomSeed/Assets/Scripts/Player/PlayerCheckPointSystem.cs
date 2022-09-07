@@ -12,9 +12,9 @@ public class PlayerCheckPointSystem : MonoBehaviour
         transform.position = cpm.lastCheckPointPos;
     }
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(Input.GetKeyDown(KeyCode.C))
+        if(collision.gameObject.CompareTag("Damage"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

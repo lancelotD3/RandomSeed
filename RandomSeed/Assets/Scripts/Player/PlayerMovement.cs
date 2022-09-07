@@ -8,17 +8,33 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 2;
 
     [SerializeField]
+    private float runingSpeed = 4;
+
+    private bool isRunnig = false;
+
+    [SerializeField]
     private float jumpingForce = 6;
 
     private float horizontal;
     private bool isFacingRight = true;
-    private bool jump = false;
-    private bool crouch = false;
+
+
 
     [SerializeField]
-    private float dashDistance = 15f;
+    private float dashCooldown = 2f;
+    private float dashTimer = 0f;
+    private bool canDash = true;
+
+    [SerializeField]
+    private float dashSpeed = 8f;
+
+    [SerializeField]
+    private float dashTime = 0.4f;
+
     private bool dash = false;
     private bool isDashing = false;
+
+
 
     [SerializeField]
     private Rigidbody2D rb;
@@ -28,6 +44,12 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask groundLayer;
     [SerializeField]
     private BoxCollider2D boxCollider;
+
+    private float initialSpeed;
+    private void Start()
+    {
+        initialSpeed = speed;    
+    }
 
     void Update()
     {
@@ -40,10 +62,30 @@ public class PlayerMovement : MonoBehaviour
 
         Flip();
         
-        if (Input.GetButtonDown("Dash") && IsGrounded() && horizontal != 0)
+        if (Input.GetButtonDown("Dash") && IsGrounded() && horizontal != 0 && canDash)
         {
             dash = true;
+            canDash = false;
         }
+        else if (!canDash)
+        {
+            dashTimer -= Time.deltaTime;
+            if (dashTimer < 0)
+            {
+                canDash = true;
+                dashTimer = dashCooldown;
+            }
+        }
+
+        if(Input.GetButton("Run") && IsGrounded() && !isDashing)
+        {
+            speed = runingSpeed;
+        }
+        else if (!isDashing)
+        {
+            speed = initialSpeed;
+        }
+
     }
 
     private void FixedUpdate()
@@ -77,9 +119,9 @@ public class PlayerMovement : MonoBehaviour
     {
         isDashing = true;
         boxCollider.enabled = false;
-        speed *= 3;
-        yield return new WaitForSeconds(0.4f);
-        speed /= 3;
+        speed = dashSpeed;
+        yield return new WaitForSeconds(dashTime);
+        speed = initialSpeed;
         isDashing = false;
         boxCollider.enabled = true;
     }

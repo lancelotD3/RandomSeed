@@ -1573,7 +1573,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Menu principale
+  m_text: 'Menu principal
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 508cb237ab1f62748bafcfcd35e1dd45, type: 2}
   m_sharedMaterial: {fileID: -7966168741879768755, guid: 508cb237ab1f62748bafcfcd35e1dd45, type: 2}
@@ -2007,7 +2009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1275469755
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3294,6 +3296,10 @@ PrefabInstance:
     - target: {fileID: 8078934816782634105, guid: 8e3cfe6c8c470374a91f5562d2ab88d1, type: 3}
       propertyPath: m_Name
       value: WinScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078934816782634105, guid: 8e3cfe6c8c470374a91f5562d2ab88d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8078934816782634110, guid: 8e3cfe6c8c470374a91f5562d2ab88d1, type: 3}
       propertyPath: m_Pivot.x

@@ -11,14 +11,13 @@ public class PlayerMovement : MonoBehaviour
     private float runingSpeed = 4;
 
     private bool isRunnig = false;
+    private bool isWalking = false;
 
     [SerializeField]
     private float jumpingForce = 6;
 
     private float horizontal;
     private bool isFacingRight = true;
-
-
 
     [SerializeField]
     private float dashCooldown = 2f;
@@ -33,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool dash = false;
     private bool isDashing = false;
-
-
 
     [SerializeField]
     private Rigidbody2D rb;
@@ -54,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
+
+        if (horizontal != 0)
+            isWalking = true;
+        else
+            isWalking = false;
 
         if(Input.GetButtonDown("Jump") && IsGrounded() && dash == false)
         {
@@ -79,13 +81,14 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetButton("Run") && IsGrounded() && !isDashing)
         {
+            isRunnig = true;
             speed = runingSpeed;
         }
         else if (!isDashing)
         {
+            isRunnig = false;
             speed = initialSpeed;
         }
-
     }
 
     private void FixedUpdate()
@@ -125,4 +128,10 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         boxCollider.enabled = true;
     }
+
+    public bool GetIsRunning() => isRunnig;
+    public bool GetIsWalking() => isWalking;
+    public bool GetIsRolling() => isDashing;
+    public bool GetIsGrounded() => IsGrounded();
+    public float GetY() => rb.velocity.y;
 }

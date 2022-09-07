@@ -6,6 +6,7 @@ public class CloseAndOpenPanel : MonoBehaviour
 {
     public GameObject PanelToOpen;
     public GameObject PanelToClose;
+    public bool fade = true;
 
     public void OpenMenu()
     {

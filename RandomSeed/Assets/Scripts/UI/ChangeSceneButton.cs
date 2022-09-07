@@ -6,10 +6,17 @@ using UnityEngine.SceneManagement;
 public class ChangeSceneButton : MonoBehaviour
 {
     public string scene;
+    public bool fade = true;
+    public LevelChanger levelChanger;
 
     public void changeScene()
     {
-        SceneManager.LoadScene(scene);
+        if(fade)
+        {
+            levelChanger.FadeToLevel(scene);
+        }
+        else
+            SceneManager.LoadScene(scene);
         Time.timeScale = 1;
     }
 }

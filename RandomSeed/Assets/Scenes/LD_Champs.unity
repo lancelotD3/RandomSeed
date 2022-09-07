@@ -224,6 +224,7 @@ MonoBehaviour:
   target: {fileID: 1618203995}
   offset: {x: 4, y: 4.5, z: -2}
   smoothFactor: 80
+  lockY: 0
 --- !u!1 &60842453
 GameObject:
   m_ObjectHideFlags: 0
@@ -4858,22 +4859,6 @@ PrefabInstance:
     - target: {fileID: 8558975012052258521, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
-      propertyPath: dashDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
-      propertyPath: jumpingForce
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8558975012052258525, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f663255976a19648b056ad55d710ff5, type: 3}

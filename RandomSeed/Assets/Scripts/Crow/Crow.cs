@@ -31,15 +31,39 @@ public class Crow : MonoBehaviour
     [SerializeField]
     private float speed = 2;
 
-
     private Vector3 startingPos;
     private float elapsedTime;
-    //[Header("Coup de bec glissé")]
-    //public GameObject beaksHitGlide;
+
+    [Header("Coup de bec glissé")]
+    public BeakHite beaksHitSlide;
+
+    private Rigidbody2D rbBeaksSlide;
+
+    private float startingSlideCooldown;
+    private bool startingSlide = false;
+
+    private float beaksHitTimerSlide = 7;
+    private bool beaksHitCanAttackSlide = false;
+    private bool beaksHitIsAttackingSlide = false;
+    private bool beaksHitIsFlyingAwaySlide = false;
+
+    private float waitingTimeBeforeAttackSlide = 2;
+    private float waitingTimerBeforeAttackSlide;
+    private bool waitingBeforeAttackSlide = false;
+
+    private Vector3 startingPosSlidePreCharge;
+    private float elapsedTimeSlidePreCharge;
+
+    private Vector3 startingPosSlide;
+    private float elapsedTimeSlide;
 
     void Start()
     {
         rbBeaks = beaksHit.gameObject.GetComponent<Rigidbody2D>();
+        rbBeaksSlide = beaksHitSlide.gameObject.GetComponent<Rigidbody2D>();
+
+        startingSlideCooldown = beaksHitCooldown;
+
         startingPos = new Vector3(player.gameObject.transform.position.x, player.transform.position.y + 7, player.gameObject.transform.position.z);
     }
 
@@ -91,6 +115,34 @@ public class Crow : MonoBehaviour
             else if(beaksHitIsFlyingAway)
             {
                 BeaksFlyAway();
+            }
+
+
+            ////////////////////////////////////////////////////////////////////////////////
+            
+            if(!startingSlide)
+                startingSlideCooldown -= Time.deltaTime; if (startingSlideCooldown < 0) startingSlide = false;
+
+            if(startingSlide)
+            {
+                if (beaksHitCanAttackSlide)
+                {
+                    beaksHitCanAttackSlide = false;
+                    beaksHitTimerSlide = beaksHitCooldown;
+
+                    waitingBeforeAttackSlide = true;
+                    startingPosSlide = beaksHitSlide.gameObject.transform.position;
+                }
+                else
+                {
+                    beaksHitTimerSlide -= Time.deltaTime;
+                    if (beaksHitTimerSlide < 0)
+                    {
+                        beaksHitCanAttackSlide = true;
+                    }
+                }
+
+
             }
         }
     }

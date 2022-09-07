@@ -74,7 +74,6 @@ public class Crow : MonoBehaviour
                 elapsedTime += Time.deltaTime;
                 float pourcentageComplete = elapsedTime / waitingTimeBeforeAttack;
                 beaksHit.gameObject.transform.position = Vector3.Lerp(startingPos, new Vector3(player.transform.position.x, player.transform.position.y + 7, player.transform.position.z), pourcentageComplete);
-                //beaksHit.gameObject.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 7, player.transform.position.z);
                 waitingTimerBeforeAttack -= Time.deltaTime;
                 if(waitingTimerBeforeAttack < 0)
                 {

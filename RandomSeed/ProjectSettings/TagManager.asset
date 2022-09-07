@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - cpm
+  - Ground
+  - Damage
   layers:
   - Default
   - TransparentFX

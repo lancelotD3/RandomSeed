@@ -19,5 +19,4 @@ public class PlayerCheckPointSystem : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-
 }

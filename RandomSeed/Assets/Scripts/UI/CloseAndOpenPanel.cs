@@ -10,12 +10,14 @@ public class CloseAndOpenPanel : MonoBehaviour
 
     public void OpenMenu()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SD/UI Select");
         PanelToOpen.SetActive(false);
         PanelToClose.SetActive(true);
     }
 
     public void CloseMenu()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SD/UI DeSelect");
         PanelToOpen.SetActive(true);
         PanelToClose.SetActive(false);
     }

@@ -9,6 +9,7 @@ public class CreditsButton : MonoBehaviour
 
     public void OpenMenu()
     {
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/SD/UI Select");
         credits.SetActive(false);
         menu.SetActive(true);
 
@@ -16,6 +17,7 @@ public class CreditsButton : MonoBehaviour
 
     public void CloseMenu()
     {
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/SD/UI DeSelect");
         credits.SetActive(true);
         menu.SetActive(false);
     }

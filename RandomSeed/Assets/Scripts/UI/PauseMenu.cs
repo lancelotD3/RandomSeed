@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using FMODUnity;
 
 public class PauseMenu : MonoBehaviour
 {
-    private FMOD.Studio.EventInstance instance;
-    //private FMOD.Studio.Bus busSFX;
-    //private FMOD.Studio.Bus busMusic;
-    //private FMOD.Studio.Bus busAmbiance;
+
 
 
     private static bool gameIsPause = false;
@@ -17,8 +15,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        //FMOD
-        FMODUnity.RuntimeManager.CreateInstance("snapshot:/Pause");
+
 
         Resume();
     }
@@ -29,12 +26,10 @@ public class PauseMenu : MonoBehaviour
         {
             if(gameIsPause)
             {
-                instance.setParameterByName("Pause", 0f);   //FMOD
                 Resume();
             }
             else
             {
-                instance.setParameterByName("Pause", 1f);   //FMOD
                 Pause();
             }
         }
@@ -43,6 +38,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         PauseMenuUI.SetActive(false);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SD/UI Select");
         Time.timeScale = 1;
         SetGameIsPause(false);
     }

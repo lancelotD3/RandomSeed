@@ -73,15 +73,30 @@ public class PlayerMovement : MonoBehaviour
     private float addForceTiming = 2;
     private float addForceTimer = 2;
 
+    [SerializeField]
+    private bool field = false;
+    private float distanceFromBegining;
+    private Vector2 startPosField;
+
     private void Start()
     {
         initialSpeed = speed;
         if (QTE)
             canMove = false;
+
+        if(field)
+        {
+            startPosField = gameObject.transform.position;
+        }
     }
 
     void Update()
     {
+        if(field)
+        {
+            distanceFromBegining = Vector2.Distance(startPosField, gameObject.transform.position);
+        }
+
         if(!isDead)
         {
             if(!QTE && canMove)
@@ -220,11 +235,13 @@ public class PlayerMovement : MonoBehaviour
     public bool GetIsRunning() => isRunnig;
     public bool GetIsWalking() => isWalking;
     public bool GetIsRolling() => isDashing;
+    public bool GetCanRoll() => canDash;
     public bool GetIsFirstDash() => firstRoll;
     public bool GetIsGrounded() => IsGrounded();
     public float GetY() => rb.velocity.y;
     public bool GetIsDead() => isDead;
     public void SetIsDead(bool value) => isDead = value;
+    public float GetDistanceField() => distanceFromBegining;
     public void AddForce(Vector2 newForce)
     {
         addForce = true;

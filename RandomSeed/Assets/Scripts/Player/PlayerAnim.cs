@@ -19,6 +19,7 @@ public class PlayerAnim : MonoBehaviour
         animator.SetBool("IsWalking", playerMovement.GetIsWalking());
         animator.SetBool("IsRolling", playerMovement.GetIsRolling());
         animator.SetBool("IsGrounded", playerMovement.GetIsGrounded());
+        animator.SetBool("FirstRoll", playerMovement.GetIsFirstDash());
         animator.SetFloat("Y", playerMovement.GetY());
     }
 }

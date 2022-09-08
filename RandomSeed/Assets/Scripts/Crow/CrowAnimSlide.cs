@@ -14,6 +14,6 @@ public class CrowAnimSlide : MonoBehaviour
 
     private void Update()
     {
-        animator.SetBool("Attack", crow.GetStartingSlide());
+ 
     }
 }

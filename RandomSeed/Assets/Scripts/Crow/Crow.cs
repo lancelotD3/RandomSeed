@@ -18,7 +18,10 @@ public class Crow : MonoBehaviour
     private Rigidbody2D rbBeaks;
 
     [SerializeField]
-    private float beaksHitCooldown = 7;
+    private float cooldownMin =0f;
+    [SerializeField]
+    private float cooldownMax =10f;
+    
     private float beaksHitTimer = 7;
     private bool beaksHitCanAttack = true;
     private bool beaksHitIsAttacking = false;
@@ -34,25 +37,9 @@ public class Crow : MonoBehaviour
     private Vector3 startingPos;
     private float elapsedTime;
 
-    [Header("Coup de bec glissé")]
-    public BeakHite beaksHitSlide;
-
-    private Rigidbody2D rbBeaksSlide;
-
-    private float startingSlideCooldown;
-    private bool startingSlide = false;
-    
-    private float gapTime;
-    private bool gap = false;
-
     void Start()
     {
         rbBeaks = beaksHit.gameObject.GetComponent<Rigidbody2D>();
-        rbBeaksSlide = beaksHitSlide.gameObject.GetComponent<Rigidbody2D>();
-
-        gapTime = beaksHitCooldown/2;
-
-        startingSlideCooldown = beaksHitCooldown + waitingTimeBeforeAttack;
 
         startingPos = new Vector3(player.gameObject.transform.position.x, player.transform.position.y + 7, player.gameObject.transform.position.z);
     }
@@ -68,7 +55,8 @@ public class Crow : MonoBehaviour
             if(beaksHitCanAttack)
             {
                 beaksHitCanAttack = false;
-                beaksHitTimer = beaksHitCooldown;
+                beaksHitTimer = Random.Range(cooldownMin, cooldownMax);
+                Debug.Log(beaksHitTimer);
 
                 waitingBeforeAttack = true;
                 startingPos = beaksHit.gameObject.transform.position;
@@ -110,33 +98,7 @@ public class Crow : MonoBehaviour
 
             ////////////////////////////////////////////////////////////////////////////////
 
-            if(!gap)
-            {
-                gapTime -= Time.deltaTime;
-                if (gapTime < 0)
-                {
-                    gap = true;
-                }
-            }
             
-            if(gap)
-            {
-                if(startingSlide)
-                {
-                    startingSlide = false;
-                    gameObject.transform.position = new Vector3(player.gameObject.transform.position.x, player.gameObject.transform.position.y + 1, player.gameObject.transform.position.z);
-                }
-
-                if (!startingSlide)
-                {
-                    startingSlideCooldown -= Time.deltaTime;
-                    if (startingSlideCooldown < 0)
-                    {
-                        startingSlide = true;
-                        startingSlideCooldown = beaksHitCooldown;
-                    }
-                }
-            }
         }
     }
 
@@ -170,5 +132,4 @@ public class Crow : MonoBehaviour
         }
     }
 
-    public bool GetStartingSlide() => startingSlide;
 }

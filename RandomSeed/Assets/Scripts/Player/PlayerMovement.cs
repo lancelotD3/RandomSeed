@@ -65,6 +65,14 @@ public class PlayerMovement : MonoBehaviour
     private float lastClickTime;
     private int clickNumber;
 
+
+
+    private bool addForce = false;
+    private Vector2 force;
+
+    private float addForceTiming = 2;
+    private float addForceTimer = 2;
+
     private void Start()
     {
         initialSpeed = speed;
@@ -169,6 +177,11 @@ public class PlayerMovement : MonoBehaviour
             firstRoll = false;
         }
 
+        if (addForce)
+        {
+            rb.AddForce(force);
+            addForce = false;
+        }
 
         if(dash)
         {
@@ -212,5 +225,11 @@ public class PlayerMovement : MonoBehaviour
     public float GetY() => rb.velocity.y;
     public bool GetIsDead() => isDead;
     public void SetIsDead(bool value) => isDead = value;
+    public void AddForce(Vector2 newForce)
+    {
+        addForce = true;
+        force = newForce;
+        Debug.Log("Add force");
+    }
 
 }

@@ -6,15 +6,15 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    private static SoundManager i;
 
     private FMOD.Studio.EventInstance instance;
+
+
 
     public PlayerMovement playermovement;
 
     private bool Walk = false;
-
-    private static SoundManager i;
-
     private int court;
 
     // Start is called before the first frame update
@@ -47,8 +47,9 @@ public class SoundManager : MonoBehaviour
                 instance.start();
 
 
+                instance.setParameterByName("Marche", 1f);
 
-                //FMODUnity.RuntimeManager.PlayOneShot("event:/SD/Footspteps");
+
                 //Debug.Log("FS");
 
             }
@@ -57,6 +58,9 @@ public class SoundManager : MonoBehaviour
         {
             instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             instance.release();
+
+            instance.setParameterByName("Marche", 0f);
+
             Walk = false;
         }
 

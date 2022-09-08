@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{0bc65865-2e3a-4745-a212-cc46032d2604}">
+		<property name="assetPath">
+			<value>RandomSeed_CorbeauStrike.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.245333333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a0ad2fe9-e895-4f88-ae14-c857a2789b7a}</destination>
+		</relationship>
+	</object>
+</objects>

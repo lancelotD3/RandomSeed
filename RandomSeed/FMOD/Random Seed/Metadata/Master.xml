@@ -4,6 +4,9 @@
 		<property name="volume">
 			<value>-4</value>
 		</property>
+		<property name="overridingInputFormat">
+			<value>1</value>
+		</property>
 		<property name="name">
 			<value>Master Bus</value>
 		</property>
@@ -24,7 +27,7 @@
 	</object>
 	<object class="MixerBusPanner" id="{3dfe01e7-d1d3-4196-a570-1ed4db614eca}">
 		<property name="overridingOutputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{2ee02b79-4690-4205-b0de-1bcf7422dcb9}" />

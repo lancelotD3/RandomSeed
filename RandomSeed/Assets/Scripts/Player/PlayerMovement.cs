@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
+    private bool QTE = false;
+
+    [SerializeField]
     private float speed = 2;
 
     [SerializeField]
@@ -45,61 +48,107 @@ public class PlayerMovement : MonoBehaviour
     private float initialSpeed;
 
     private bool isDead = false;
+
+    private bool canJump = true;
+
+    private bool push = false;
+
+
+    /// QTE
+    /// 
+    private const float MULITPLE_CLICK_TIME = .2f;
+
+    private float lastClickTime;
+    private int clickNumber;
+
     private void Start()
     {
-        initialSpeed = speed;    
+        initialSpeed = speed;
+        if (QTE)
+            canJump = false;
     }
 
     void Update()
     {
         if(!isDead)
         {
-
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (horizontal != 0)
-            isWalking = true;
-        else
-            isWalking = false;
-
-        if(Input.GetButtonDown("Jump") && IsGrounded() && dash == false)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingForce);
-        }
-
-        Flip();
-        
-        if (Input.GetButtonDown("Dash") && IsGrounded() && horizontal != 0 && canDash)
-        {
-            dash = true;
-            canDash = false;
-        }
-        else if (!canDash)
-        {
-            dashTimer -= Time.deltaTime;
-            if (dashTimer < 0)
+            if(!QTE)
             {
-                canDash = true;
-                dashTimer = dashCooldown;
-            }
-        }
+                horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetButton("Run") && IsGrounded() && !isDashing)
-        {
-            isRunnig = true;
-            speed = runingSpeed;
-        }
-        else if (!isDashing)
-        {
-            isRunnig = false;
-            speed = initialSpeed;
-        }
+                if (horizontal != 0)
+                    isWalking = true;
+                else
+                    isWalking = false;
+
+                if(Input.GetButtonDown("Jump") && IsGrounded() && dash == false && canJump)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpingForce);
+                }
+
+                Flip();
+                
+                if (Input.GetButtonDown("Dash") && IsGrounded() && horizontal != 0 && canDash)
+                {
+                    dash = true;
+                    canDash = false;
+                }
+                else if (!canDash)
+                {
+                    dashTimer -= Time.deltaTime;
+                    if (dashTimer < 0)
+                    {
+                        canDash = true;
+                        dashTimer = dashCooldown;
+                    }
+                }
+
+                if(Input.GetButton("Run") && IsGrounded() && !isDashing)
+                {
+                    isRunnig = true;
+                    speed = runingSpeed;
+                }
+                else if (!isDashing)
+                {
+                    isRunnig = false;
+                    speed = initialSpeed;
+                }
+            }
+            else
+            {
+                //if(Input.GetButtonDown("Jump"))
+                if(Input.GetButtonDown("Dash"))
+                {
+                    float timeSinceLastClick = Time.time - lastClickTime;
+
+                    if (timeSinceLastClick <= MULITPLE_CLICK_TIME)
+                        clickNumber += 1;
+                    else
+                        clickNumber = 0;
+
+                    if(clickNumber >= 5)
+                    {
+                        QTE = false;
+                        canJump = true;
+                        push = true;
+                    }
+
+                    lastClickTime = Time.time;
+                }
+            }
         }
     }
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+
+        if(push)
+        {
+            rb.velocity = new Vector2(8, 2);
+            push = false;
+        }
+
 
         if(dash)
         {

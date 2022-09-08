@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
 
     private float initialSpeed;
+
+    private bool isDead = false;
     private void Start()
     {
         initialSpeed = speed;    
@@ -50,6 +52,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(!isDead)
+        {
+
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (horizontal != 0)
@@ -88,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isRunnig = false;
             speed = initialSpeed;
+        }
         }
     }
 
@@ -134,4 +140,7 @@ public class PlayerMovement : MonoBehaviour
     public bool GetIsRolling() => isDashing;
     public bool GetIsGrounded() => IsGrounded();
     public float GetY() => rb.velocity.y;
+    public bool GetIsDead() => isDead;
+    public void SetIsDead(bool value) => isDead = value;
+
 }

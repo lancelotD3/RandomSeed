@@ -9,12 +9,14 @@ public class Credits : MonoBehaviour
 
     public void OpenCredits()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SD/UI Select");
         menu.SetActive(false);
         credits.SetActive(true);
     }
 
     public void CloseCredits()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SD/UI DeSelect");
         menu.SetActive(true);
         credits.SetActive(false);
     }

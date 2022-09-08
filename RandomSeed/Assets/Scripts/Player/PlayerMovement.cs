@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private bool QTE = false;
 
+    private bool firstRoll = false;
+
     [SerializeField]
     private float speed = 2;
 
@@ -49,9 +51,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isDead = false;
 
-    private bool canJump = true;
-
     private bool push = false;
+
+    private bool canMove = true;
+    private bool canMoveTimer = false;
+    private float canMoveTime = 1;
 
 
     /// QTE
@@ -65,14 +69,14 @@ public class PlayerMovement : MonoBehaviour
     {
         initialSpeed = speed;
         if (QTE)
-            canJump = false;
+            canMove = false;
     }
 
     void Update()
     {
         if(!isDead)
         {
-            if(!QTE)
+            if(!QTE && canMove)
             {
                 horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -81,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
                 else
                     isWalking = false;
 
-                if(Input.GetButtonDown("Jump") && IsGrounded() && dash == false && canJump)
+                if(Input.GetButtonDown("Jump") && IsGrounded() && dash == false)
                 {
                     rb.velocity = new Vector2(rb.velocity.x, jumpingForce);
                 }
@@ -117,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 //if(Input.GetButtonDown("Jump"))
-                if(Input.GetButtonDown("Dash"))
+                if(Input.GetButtonDown("Jump"))
                 {
                     float timeSinceLastClick = Time.time - lastClickTime;
 
@@ -129,11 +133,20 @@ public class PlayerMovement : MonoBehaviour
                     if(clickNumber >= 5)
                     {
                         QTE = false;
-                        canJump = true;
                         push = true;
                     }
 
                     lastClickTime = Time.time;
+                }
+            }
+
+            if(canMoveTimer)
+            {
+                canMoveTime -= Time.deltaTime;
+                if (canMoveTime < 0)
+                {
+                    canMove = true;
+                    canMoveTimer = false;
                 }
             }
         }
@@ -141,12 +154,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
+        if(canMove)
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        
         if(push)
         {
-            rb.velocity = new Vector2(8, 2);
+            rb.AddForce(new Vector2(150, 2));
+            canMoveTimer = true;
             push = false;
+            firstRoll = true;
+        }
+        else
+        {
+            firstRoll = false;
         }
 
 
@@ -187,6 +207,7 @@ public class PlayerMovement : MonoBehaviour
     public bool GetIsRunning() => isRunnig;
     public bool GetIsWalking() => isWalking;
     public bool GetIsRolling() => isDashing;
+    public bool GetIsFirstDash() => firstRoll;
     public bool GetIsGrounded() => IsGrounded();
     public float GetY() => rb.velocity.y;
     public bool GetIsDead() => isDead;

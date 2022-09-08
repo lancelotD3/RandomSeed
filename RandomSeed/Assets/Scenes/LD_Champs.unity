@@ -11505,6 +11505,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8558975012052258523, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
+      propertyPath: m_GravityScale
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
       propertyPath: speed
       value: 5
@@ -11519,7 +11523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
       propertyPath: jumpingForce
-      value: 6.5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8558975012052258525, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
       propertyPath: m_Enabled
@@ -19788,7 +19792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2689202995263447081
 MonoBehaviour:
   m_ObjectHideFlags: 0

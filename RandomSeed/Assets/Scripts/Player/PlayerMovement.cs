@@ -78,6 +78,9 @@ public class PlayerMovement : MonoBehaviour
     private float distanceFromBegining;
     private Vector2 startPosField;
 
+    [SerializeField]
+    private Vector2 expulseForce;
+
     private void Start()
     {
         initialSpeed = speed;
@@ -182,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
         
         if(push)
         {
-            rb.AddForce(new Vector2(150, 2));
+            rb.AddForce(expulseForce);
             canMoveTimer = true;
             push = false;
             firstRoll = true;

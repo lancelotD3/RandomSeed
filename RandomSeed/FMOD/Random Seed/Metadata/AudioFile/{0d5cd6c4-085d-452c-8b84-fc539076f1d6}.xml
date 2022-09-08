@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{0d5cd6c4-085d-452c-8b84-fc539076f1d6}">
+		<property name="assetPath">
+			<value>RandomSeed_Forest_Creaks _1.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>11.527854166666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a0ad2fe9-e895-4f88-ae14-c857a2789b7a}</destination>
+		</relationship>
+	</object>
+</objects>

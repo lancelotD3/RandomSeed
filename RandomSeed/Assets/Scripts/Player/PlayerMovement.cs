@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
+    private bool QTE = false;
+
+    private bool firstRoll = false;
+
+    [SerializeField]
     private float speed = 2;
 
     [SerializeField]
@@ -45,61 +50,125 @@ public class PlayerMovement : MonoBehaviour
     private float initialSpeed;
 
     private bool isDead = false;
+
+    private bool push = false;
+
+    private bool canMove = true;
+    private bool canMoveTimer = false;
+    private float canMoveTime = 1;
+
+
+    /// QTE
+    /// 
+    private const float MULITPLE_CLICK_TIME = .2f;
+
+    private float lastClickTime;
+    private int clickNumber;
+
     private void Start()
     {
-        initialSpeed = speed;    
+        initialSpeed = speed;
+        if (QTE)
+            canMove = false;
     }
 
     void Update()
     {
         if(!isDead)
         {
-
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (horizontal != 0)
-            isWalking = true;
-        else
-            isWalking = false;
-
-        if(Input.GetButtonDown("Jump") && IsGrounded() && dash == false)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingForce);
-        }
-
-        Flip();
-        
-        if (Input.GetButtonDown("Dash") && IsGrounded() && horizontal != 0 && canDash)
-        {
-            dash = true;
-            canDash = false;
-        }
-        else if (!canDash)
-        {
-            dashTimer -= Time.deltaTime;
-            if (dashTimer < 0)
+            if(!QTE && canMove)
             {
-                canDash = true;
-                dashTimer = dashCooldown;
-            }
-        }
+                horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetButton("Run") && IsGrounded() && !isDashing)
-        {
-            isRunnig = true;
-            speed = runingSpeed;
-        }
-        else if (!isDashing)
-        {
-            isRunnig = false;
-            speed = initialSpeed;
-        }
+                if (horizontal != 0)
+                    isWalking = true;
+                else
+                    isWalking = false;
+
+                if(Input.GetButtonDown("Jump") && IsGrounded() && dash == false)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpingForce);
+                }
+
+                Flip();
+                
+                if (Input.GetButtonDown("Dash") && IsGrounded() && horizontal != 0 && canDash)
+                {
+                    dash = true;
+                    canDash = false;
+                }
+                else if (!canDash)
+                {
+                    dashTimer -= Time.deltaTime;
+                    if (dashTimer < 0)
+                    {
+                        canDash = true;
+                        dashTimer = dashCooldown;
+                    }
+                }
+
+                if(Input.GetButton("Run") && IsGrounded() && !isDashing)
+                {
+                    isRunnig = true;
+                    speed = runingSpeed;
+                }
+                else if (!isDashing)
+                {
+                    isRunnig = false;
+                    speed = initialSpeed;
+                }
+            }
+            else
+            {
+                //if(Input.GetButtonDown("Jump"))
+                if(Input.GetButtonDown("Jump"))
+                {
+                    float timeSinceLastClick = Time.time - lastClickTime;
+
+                    if (timeSinceLastClick <= MULITPLE_CLICK_TIME)
+                        clickNumber += 1;
+                    else
+                        clickNumber = 0;
+
+                    if(clickNumber >= 5)
+                    {
+                        QTE = false;
+                        push = true;
+                    }
+
+                    lastClickTime = Time.time;
+                }
+            }
+
+            if(canMoveTimer)
+            {
+                canMoveTime -= Time.deltaTime;
+                if (canMoveTime < 0)
+                {
+                    canMove = true;
+                    canMoveTimer = false;
+                }
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        if(canMove)
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        
+        if(push)
+        {
+            rb.AddForce(new Vector2(150, 2));
+            canMoveTimer = true;
+            push = false;
+            firstRoll = true;
+        }
+        else
+        {
+            firstRoll = false;
+        }
+
 
         if(dash)
         {
@@ -138,6 +207,7 @@ public class PlayerMovement : MonoBehaviour
     public bool GetIsRunning() => isRunnig;
     public bool GetIsWalking() => isWalking;
     public bool GetIsRolling() => isDashing;
+    public bool GetIsFirstDash() => firstRoll;
     public bool GetIsGrounded() => IsGrounded();
     public float GetY() => rb.velocity.y;
     public bool GetIsDead() => isDead;

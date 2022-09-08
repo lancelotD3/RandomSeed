@@ -10,7 +10,6 @@ public class CheckPoint : MonoBehaviour
     private void Start()
     {
         cpm = GameObject.FindObjectOfType<CheckPointManager>().GetComponent<CheckPointManager>();
-        Debug.Log("Checkpoint");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -11,6 +11,13 @@
 /RandomSeed/[Mm]emoryCaptures/
 /RandomSeed/fmod_editor.log
 
+# FMOD
+/RandomSeed/Assets/FMODStudioCache.asset
+/RandomSeed/Assets/FMODStudioCache.asset.meta
+/RandomSeed/Assets/StreamingAssets/*.bank
+/RandomSeed/fmod.log
+/RandomSeed/fmod_editor.log
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 

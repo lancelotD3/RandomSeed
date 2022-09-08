@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
+    public LevelChanger levelChanger;
+
     public string nextScene;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(nextScene);
+            levelChanger.FadeToLevel(nextScene);
         }
     }
 }

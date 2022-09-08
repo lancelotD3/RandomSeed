@@ -65,8 +65,6 @@ public class PlayerMovement : MonoBehaviour
     private float lastClickTime;
     private int clickNumber;
 
-
-
     private bool addForce = false;
     private Vector2 force;
 
@@ -90,6 +88,15 @@ public class PlayerMovement : MonoBehaviour
         if(field)
         {
             startPosField = gameObject.transform.position;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            if (!canMove)
+                canMove = true;
         }
     }
 
@@ -146,7 +153,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                //if(Input.GetButtonDown("Jump"))
                 if(Input.GetButtonDown("Jump"))
                 {
                     float timeSinceLastClick = Time.time - lastClickTime;
@@ -247,9 +253,11 @@ public class PlayerMovement : MonoBehaviour
     public float GetDistanceField() => distanceFromBegining;
     public void AddForce(Vector2 newForce)
     {
+        rb.velocity = Vector2.zero;
+        
+        canMove = false;
         addForce = true;
         force = newForce;
-        Debug.Log("Add force");
     }
 
 }

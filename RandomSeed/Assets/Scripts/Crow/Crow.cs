@@ -20,7 +20,7 @@ public class Crow : MonoBehaviour
     [SerializeField]
     private float beaksHitCooldown = 7;
     private float beaksHitTimer = 7;
-    private bool beaksHitCanAttack = false;
+    private bool beaksHitCanAttack = true;
     private bool beaksHitIsAttacking = false;
     private bool beaksHitIsFlyingAway = false;
 
@@ -41,28 +41,18 @@ public class Crow : MonoBehaviour
 
     private float startingSlideCooldown;
     private bool startingSlide = false;
-
-    private float beaksHitTimerSlide = 7;
-    private bool beaksHitCanAttackSlide = false;
-    private bool beaksHitIsAttackingSlide = false;
-    private bool beaksHitIsFlyingAwaySlide = false;
-
-    private float waitingTimeBeforeAttackSlide = 2;
-    private float waitingTimerBeforeAttackSlide;
-    private bool waitingBeforeAttackSlide = false;
-
-    private Vector3 startingPosSlidePreCharge;
-    private float elapsedTimeSlidePreCharge;
-
-    private Vector3 startingPosSlide;
-    private float elapsedTimeSlide;
+    
+    private float gapTime;
+    private bool gap = false;
 
     void Start()
     {
         rbBeaks = beaksHit.gameObject.GetComponent<Rigidbody2D>();
         rbBeaksSlide = beaksHitSlide.gameObject.GetComponent<Rigidbody2D>();
 
-        startingSlideCooldown = beaksHitCooldown;
+        gapTime = beaksHitCooldown/2;
+
+        startingSlideCooldown = beaksHitCooldown + waitingTimeBeforeAttack;
 
         startingPos = new Vector3(player.gameObject.transform.position.x, player.transform.position.y + 7, player.gameObject.transform.position.z);
     }
@@ -119,30 +109,33 @@ public class Crow : MonoBehaviour
 
 
             ////////////////////////////////////////////////////////////////////////////////
-            
-            if(!startingSlide)
-                startingSlideCooldown -= Time.deltaTime; if (startingSlideCooldown < 0) startingSlide = false;
 
-            if(startingSlide)
+            if(!gap)
             {
-                if (beaksHitCanAttackSlide)
+                gapTime -= Time.deltaTime;
+                if (gapTime < 0)
                 {
-                    beaksHitCanAttackSlide = false;
-                    beaksHitTimerSlide = beaksHitCooldown;
-
-                    waitingBeforeAttackSlide = true;
-                    startingPosSlide = beaksHitSlide.gameObject.transform.position;
+                    gap = true;
                 }
-                else
+            }
+            
+            if(gap)
+            {
+                if(startingSlide)
                 {
-                    beaksHitTimerSlide -= Time.deltaTime;
-                    if (beaksHitTimerSlide < 0)
+                    startingSlide = false;
+                    gameObject.transform.position = new Vector3(player.gameObject.transform.position.x, player.gameObject.transform.position.y + 1, player.gameObject.transform.position.z);
+                }
+
+                if (!startingSlide)
+                {
+                    startingSlideCooldown -= Time.deltaTime;
+                    if (startingSlideCooldown < 0)
                     {
-                        beaksHitCanAttackSlide = true;
+                        startingSlide = true;
+                        startingSlideCooldown = beaksHitCooldown;
                     }
                 }
-
-
             }
         }
     }
@@ -171,9 +164,11 @@ public class Crow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player") && !inFight)
         {
             inFight = true;
         }
     }
+
+    public bool GetStartingSlide() => startingSlide;
 }

@@ -480,11 +480,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43880695}
   m_CullTransparentMesh: 1
---- !u!95 &71308721 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4737449515409638380, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
-  m_PrefabInstance: {fileID: 1493497895}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &71852770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,6 +1253,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1479677793907151978, guid: df7352936f024d146b878b4c25c69656, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2638211640620356253, guid: df7352936f024d146b878b4c25c69656, type: 3}
       propertyPath: m_Name
       value: Crow
@@ -1266,6 +1265,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 571529414}
+    - target: {fileID: 2689202994371072183, guid: df7352936f024d146b878b4c25c69656, type: 3}
+      propertyPath: beaksHitCooldown
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6124499349888293529, guid: df7352936f024d146b878b4c25c69656, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2510,10 +2513,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1447066177807094073, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 71308721}
     - target: {fileID: 8558975012052258520, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
       propertyPath: m_RootOrder
       value: 6

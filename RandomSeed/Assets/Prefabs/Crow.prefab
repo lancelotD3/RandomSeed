@@ -106,6 +106,8 @@ GameObject:
   - component: {fileID: 4553638185357722812}
   - component: {fileID: 8538431717300412486}
   - component: {fileID: 4120797188004307851}
+  - component: {fileID: 836990699340490727}
+  - component: {fileID: 2231715496408331468}
   m_Layer: 0
   m_Name: Beak_s_hite_slide
   m_TagString: Damage
@@ -120,15 +122,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037838271467210704}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.66, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.3822803, w: 0.9240464}
+  m_LocalPosition: {x: 0, y: 38.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6967632675708585510}
   m_Father: {fileID: 6124499349888293529}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 44.95}
 --- !u!61 &4553638185357722812
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -188,6 +190,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f47d2846b6faa4483bca784e7820cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &836990699340490727
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037838271467210704}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 357c2556e58f388469b1f16ea0e7d29a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2231715496408331468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037838271467210704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8303f237b379bb74bb2b456777090b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 836990699340490727}
 --- !u!1 &2638211640620356253
 GameObject:
   m_ObjectHideFlags: 0

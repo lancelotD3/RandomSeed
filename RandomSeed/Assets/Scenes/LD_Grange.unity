@@ -751,9 +751,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8558975012052258523, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558975012052258523, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558975012052258523, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
+      propertyPath: m_GravityScale
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
       propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
+      propertyPath: dashSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
+      propertyPath: runingSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
+      propertyPath: dashCooldown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
       propertyPath: dashDistance
@@ -761,7 +785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
       propertyPath: jumpingForce
-      value: 6.5
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f663255976a19648b056ad55d710ff5, type: 3}

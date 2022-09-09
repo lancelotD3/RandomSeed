@@ -202,7 +202,11 @@ MonoBehaviour:
   Name: Master.strings
   StudioPath: bank:/Master.strings
 <<<<<<< HEAD
+<<<<<<< HEAD
   lastModified: 637983183438792645
+=======
+  lastModified: 637983211910702527
+>>>>>>> origin/Sound
 =======
   lastModified: 637983211910702527
 >>>>>>> origin/Sound
@@ -270,7 +274,11 @@ MonoBehaviour:
   Name: Master
   StudioPath: bank:/Master
 <<<<<<< HEAD
+<<<<<<< HEAD
   lastModified: 637983183438772609
+=======
+  lastModified: 637983211910583508
+>>>>>>> origin/Sound
 =======
   lastModified: 637983211910583508
 >>>>>>> origin/Sound
@@ -548,7 +556,11 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -6186854838863944140}
 <<<<<<< HEAD
+<<<<<<< HEAD
   cacheTime: 637983183438792645
+=======
+  cacheTime: 637983211910702527
+>>>>>>> origin/Sound
 =======
   cacheTime: 637983211910702527
 >>>>>>> origin/Sound

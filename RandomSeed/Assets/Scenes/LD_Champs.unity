@@ -10104,7 +10104,7 @@ GameObject:
   - component: {fileID: 314293674}
   m_Layer: 6
   m_Name: "bl\xE9 style 2"
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26491,7 +26491,7 @@ GameObject:
   - component: {fileID: 977994546}
   m_Layer: 6
   m_Name: "bl\xE9 style 2 (3)"
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52144,7 +52144,7 @@ GameObject:
   - component: {fileID: 1765216800}
   m_Layer: 6
   m_Name: petit caillou (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57200,7 +57200,7 @@ GameObject:
   - component: {fileID: 1949238800}
   m_Layer: 6
   m_Name: "bl\xE9 style 2 (1)"
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57301,7 +57301,7 @@ GameObject:
   - component: {fileID: 1954612076}
   m_Layer: 6
   m_Name: "bl\xE9 style 2 (4)"
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

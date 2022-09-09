@@ -33,7 +33,7 @@ public class SoundManager : MonoBehaviour
 
         i = this;
 
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame

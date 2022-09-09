@@ -220,7 +220,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        if (groundCheck)
+            return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        else
+            return false;
     }
 
     private void Flip()

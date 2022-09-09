@@ -15,9 +15,6 @@ public class WaterDrop : MonoBehaviour
             else
                 collision.gameObject.GetComponent<PlayerMovement>().AddForce(new Vector2(300, 300));
         }
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            Destroy(this.gameObject);
-        }
+        Destroy(this.gameObject);
     }
 }

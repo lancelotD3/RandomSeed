@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SandBoxLancelot.unity
     guid: deab834967a5f4940b40c32b0474e531
+  - enabled: 1
+    path: "Assets/Scenes/LD_For\xEAt.unity"
+    guid: 0f69897b31735cb458303a01b548db8c
+  - enabled: 1
+    path: Assets/Scenes/LD_Grange.unity
+    guid: a3d6b4e0542032143a5e0dc9d5929e7a
+  - enabled: 1
+    path: Assets/Scenes/LD_Champs.unity
+    guid: 2720ddd54a739d742930f651b6383c65
   m_configObjects: {}

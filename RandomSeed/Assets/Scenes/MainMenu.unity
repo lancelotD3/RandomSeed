@@ -2747,6 +2747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelChanger
       objectReference: {fileID: 0}
+    - target: {fileID: 5124270435508353232, guid: 350dede8cb6b23e4db909bf8fb01f233, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.5213623
+      objectReference: {fileID: 0}
     - target: {fileID: 5124270435508353247, guid: 350dede8cb6b23e4db909bf8fb01f233, type: 3}
       propertyPath: m_Enabled
       value: 0

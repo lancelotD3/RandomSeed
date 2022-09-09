@@ -97,7 +97,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!canMove)
                 canMove = true;
-            //Debug.Log("oui");
         }
     }
 
@@ -182,6 +181,10 @@ public class PlayerMovement : MonoBehaviour
                     canMoveTimer = false;
                 }
             }
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 

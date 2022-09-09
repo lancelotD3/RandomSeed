@@ -24,12 +24,7 @@ public class PlayerCheckPointSystem : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Damage"))
         {
-            if (!spawnPanel)
-            {
-                panel.SetActive(true);
-                playerMovement.SetIsDead(true);
-                spawnPanel = true;
-            }
+            Dead();
         }
     }
 
@@ -42,6 +37,16 @@ public class PlayerCheckPointSystem : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+        }
+    }
+
+    public void Dead()
+    {
+        if (!spawnPanel)
+        {
+            panel.SetActive(true);
+            playerMovement.SetIsDead(true);
+            spawnPanel = true;
         }
     }
 }

@@ -1537,7 +1537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821b088e5da6f96449f57aceb52c1ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: LD_Grange
+  scene: LD_Champs
   fade: 1
   levelChanger: {fileID: 519415939}
 --- !u!1 &846854315

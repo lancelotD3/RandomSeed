@@ -382,6 +382,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 573125145}
     m_Modifications:
+    - target: {fileID: 5253741886376787307, guid: 8e3cfe6c8c470374a91f5562d2ab88d1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253741886376787307, guid: 8e3cfe6c8c470374a91f5562d2ab88d1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253741886376787307, guid: 8e3cfe6c8c470374a91f5562d2ab88d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -461.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253741886376787307, guid: 8e3cfe6c8c470374a91f5562d2ab88d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -259.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050596852611709318, guid: 8e3cfe6c8c470374a91f5562d2ab88d1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8078934816782634105, guid: 8e3cfe6c8c470374a91f5562d2ab88d1, type: 3}
       propertyPath: m_Name
       value: WinScreen

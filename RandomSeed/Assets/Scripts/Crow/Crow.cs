@@ -40,11 +40,16 @@ public class Crow : MonoBehaviour
     private Vector3 startingPos;
     private float elapsedTime;
 
+    private FMOD.Studio.EventInstance instanceMusic;
+
     void Start()
     {
         rbBeaks = beaksHit.gameObject.GetComponent<Rigidbody2D>();
 
         startingPos = new Vector3(player.gameObject.transform.position.x, player.transform.position.y + 7, player.gameObject.transform.position.z);
+
+        instanceMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Champ");
+        instanceMusic.start();
     }
 
     void Update()
@@ -75,6 +80,7 @@ public class Crow : MonoBehaviour
                 if(beaksHitTimer < 0)
                 {
                     beaksHitCanAttack = true;
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SD/CorbeauStrike");
                 }
 
             }
@@ -137,6 +143,7 @@ public class Crow : MonoBehaviour
         if(collision.gameObject.CompareTag("Player") && !inFight)
         {
             inFight = true;
+            instanceMusic.setParameterByName("Marche", 4.7f);
         }
     }
 

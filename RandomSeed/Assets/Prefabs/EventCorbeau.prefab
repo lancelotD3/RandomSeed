@@ -4915,6 +4915,7 @@ GameObject:
   - component: {fileID: 8538990901167477112}
   - component: {fileID: 8538990901167477111}
   - component: {fileID: 8538990901167477110}
+  - component: {fileID: 3377508256049628696}
   m_Layer: 0
   m_Name: ombre
   m_TagString: Untagged
@@ -5022,6 +5023,29 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 81154e543051f9847a27dda423892e29, type: 2}
+--- !u!114 &3377508256049628696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8538990901167477109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SD/CorbeauPassBy
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &8538990901319602856
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,9 @@ public class Crow : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    [SerializeField]
+    private GameObject barrierefinlv;
+
     [Header("Coup de bec")]
     public BeakHite beaksHit;
 
@@ -50,7 +53,12 @@ public class Crow : MonoBehaviour
         {
             duration -= Time.deltaTime;
             if (duration < 0)
+            {
                 inFight = false;
+                barrierefinlv.SetActive(false);
+
+            }
+                
 
             if(beaksHitCanAttack)
             {

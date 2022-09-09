@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     private static SoundManager i;
 
     private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance instanceMarche;
 
 
 
@@ -20,13 +21,14 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        instanceMarche = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Champ");
+        instanceMarche.start();
     }
 
     private void Awake()
     {
         if (i != null && i != this)
-            Destroy(gameObject);    
+            Destroy(gameObject);
 
         i = this;
 
@@ -47,7 +49,7 @@ public class SoundManager : MonoBehaviour
                 instance.start();
 
 
-                instance.setParameterByName("Marche", 1f);
+                instanceMarche.setParameterByName("Marche", 1f);
 
 
                 //Debug.Log("FS");
@@ -59,7 +61,7 @@ public class SoundManager : MonoBehaviour
             instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             instance.release();
 
-            instance.setParameterByName("Marche", 0f);
+            instanceMarche.setParameterByName("Marche", 0f);
 
             Walk = false;
         }

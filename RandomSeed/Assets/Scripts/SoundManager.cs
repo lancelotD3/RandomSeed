@@ -22,7 +22,8 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         instanceMarche = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Champ");
-        instanceMarche.start();
+        //instanceMarche.start();
+
     }
 
     private void Awake()
@@ -38,6 +39,8 @@ public class SoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        instanceMarche.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instanceMarche.release();
         if (Input.GetAxisRaw("Horizontal") != 0f && playermovement.GetIsGrounded())
         {
             if (!Walk)

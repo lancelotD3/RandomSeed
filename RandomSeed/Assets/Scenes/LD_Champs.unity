@@ -34984,6 +34984,14 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
+      propertyPath: QTE
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
+      propertyPath: field
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
@@ -34998,6 +35006,14 @@ PrefabInstance:
     - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
       propertyPath: jumpingForce
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
+      propertyPath: expulseForce.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558975012052258524, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
+      propertyPath: expulseForce.y
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8558975012052258525, guid: 6f663255976a19648b056ad55d710ff5, type: 3}
       propertyPath: m_Enabled

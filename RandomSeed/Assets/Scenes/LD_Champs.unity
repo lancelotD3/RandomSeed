@@ -526,6 +526,7 @@ GameObject:
   - component: {fileID: 13418607}
   - component: {fileID: 13418606}
   - component: {fileID: 13418609}
+  - component: {fileID: 13418610}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -615,6 +616,20 @@ MonoBehaviour:
   offset: {x: 4, y: 2, z: -3}
   smoothFactor: 2
   lockY: 1
+--- !u!114 &13418610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13418605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &16744707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,7 +2631,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8228919448480508976, guid: 08c241cf042889f4a84e4ab29c472523, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 08c241cf042889f4a84e4ab29c472523, type: 3}
 --- !u!1 &86518708
 GameObject:
@@ -4827,6 +4843,10 @@ PrefabInstance:
       propertyPath: playermovement
       value: 
       objectReference: {fileID: 2005705812}
+    - target: {fileID: 5205746655970168055, guid: 3e65f270b04457e47b7979ee007bd310, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6748317434896417500, guid: 3e65f270b04457e47b7979ee007bd310, type: 3}
       propertyPath: m_Name
       value: Sound_Champ Variant
@@ -20520,7 +20540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5124270434431868138, guid: 350dede8cb6b23e4db909bf8fb01f233, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5124270435508353232, guid: 350dede8cb6b23e4db909bf8fb01f233, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -45283,6 +45303,8 @@ GameObject:
   - component: {fileID: 1521341339}
   - component: {fileID: 1521341338}
   - component: {fileID: 1521341337}
+  - component: {fileID: 1521341341}
+  - component: {fileID: 1521341342}
   m_Layer: 0
   m_Name: Event_Corbeau
   m_TagString: Untagged
@@ -45368,6 +45390,42 @@ Transform:
   m_Father: {fileID: 1910483898}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1521341341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521341336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SD/CorbeauPassBy
+  PlayEvent: 5
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &1521341342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521341336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca0de6ed94ea1e4c9707a3a41e2bbd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 2005705812}
 --- !u!1 &1522177877
 GameObject:
   m_ObjectHideFlags: 0

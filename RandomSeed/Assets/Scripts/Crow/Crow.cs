@@ -49,7 +49,7 @@ public class Crow : MonoBehaviour
         startingPos = new Vector3(player.gameObject.transform.position.x, player.transform.position.y + 7, player.gameObject.transform.position.z);
 
         instanceMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Champ");
-        instanceMusic.start();
+        //instanceMusic.start();
     }
 
     void Update()
@@ -143,7 +143,7 @@ public class Crow : MonoBehaviour
         if(collision.gameObject.CompareTag("Player") && !inFight)
         {
             inFight = true;
-            instanceMusic.setParameterByName("Marche", 4.7f);
+            instanceMusic.setParameterByName("Scene", 4.7f);
         }
     }
 
